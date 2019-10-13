@@ -1,5 +1,5 @@
 {% set name = "pomegranate" %}
-{% set version = "0.11.0" %}
+{% set version = "0.11.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://github.com/jmschrei/{{ name }}/archive/v{{ version }}.tar.gz"
-  sha256: "70566e06da07a95d6be1b6b76acf12d149e0484c48173d5a6493bc85bcc62e0b"
+  sha256: "2663db98fc64fac6d2c732d05f41b1a961f820e788b044f216fd3bf7b049646f"
 
 build:
   number: 0
