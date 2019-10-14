@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://github.com/jmschrei/{{ name }}/archive/v{{ version }}.tar.gz"
-  sha256: "70566e06da07a95d6be1b6b76acf12d149e0484c48173d5a6493bc85bcc62e0b"
+  sha256: "ef01a034270a3a020817272e76637cf349266ca68c2376df4f893c1a40cb0771"
 
 build:
   number: 0
