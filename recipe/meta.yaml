@@ -17,7 +17,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}
   host:
-    - cython
+    - cython >=0.22.1
     - numpy >=1.8.0
     - pip
     - python
