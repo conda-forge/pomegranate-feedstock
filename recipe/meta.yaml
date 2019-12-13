@@ -1,5 +1,5 @@
 {% set name = "pomegranate" %}
-{% set version = "0.11.2" %}
+{% set version = "0.12.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://github.com/jmschrei/{{ name }}/archive/v{{ version }}.tar.gz"
-  sha256: "ef01a034270a3a020817272e76637cf349266ca68c2376df4f893c1a40cb0771"
+  sha256: "c48c8ca65b1ba6268ec747cc04d915fdd1578714f8a269663abce583a441426f"
 
 build:
   number: 0
@@ -17,7 +17,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}
   host:
-    - cython
+    - cython >=0.22.1
     - numpy >=1.8.0
     - pip
     - python
