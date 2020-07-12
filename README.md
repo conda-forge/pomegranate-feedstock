@@ -5,7 +5,7 @@ Home: http://pypi.python.org/pypi/pomegranate/
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Pomegranate is a graphical models library for Python, implemented in Cython for speed.
 
