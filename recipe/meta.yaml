@@ -1,30 +1,32 @@
 {% set name = "pomegranate" %}
-{% set version = "0.13.3" %}
+{% set version = "0.14.8" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/jmschrei/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 7e1e1699d94536bbb726035b163492c6db0e5b06eba200f7263a3e99e60314fe
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pomegranate-{{ version }}.tar.gz
+  sha256: 2296651290482dd53204ffaaaea267ceee057ce1b3ef1f9d9793febe66d6693d
 
 build:
-  number: 3
   script: {{ PYTHON }} -m pip install . -vv
+  number: 0
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - cython  # [target_platform != build_platform]
+    - numpy   # [target_platform != build_platform]
   host:
-    - cython >=0.22.1
-    - numpy >=1.8.0
+    - cython
+    - numpy
     - pip
     - python
     - scipy >=0.17.0
   run:
     - joblib >=0.9.0b4
-    - networkx >=2.0
+    - networkx >=2.4
     - {{ pin_compatible("numpy") }}
     - python
     - pyyaml
@@ -33,17 +35,21 @@ requirements:
 test:
   imports:
     - pomegranate
-    - pomegranate.distributions
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: http://pypi.python.org/pypi/pomegranate/
-  license: MIT
-  license_family: MIT
-  license_file: LICENSE
-  summary: Pomegranate is a graphical models library for Python, implemented in Cython for speed.
   doc_url: https://pomegranate.readthedocs.io
   dev_url: https://github.com/jmschrei/pomegranate
+  summary: Pomegranate is a graphical models library for Python, implemented in Cython for speed.
+  license: MIT
+  license_file:
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - micknudsen
+    - wolfv
