@@ -1,5 +1,5 @@
 {% set name = "pomegranate" %}
-{% set version = "0.14.8" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pomegranate-{{ version }}.tar.gz
-  sha256: 2296651290482dd53204ffaaaea267ceee057ce1b3ef1f9d9793febe66d6693d
+  sha256: e36d72c7c28a8bd7397d648bbb1e3cb0406608b290022ca70283884a34e5035b
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
