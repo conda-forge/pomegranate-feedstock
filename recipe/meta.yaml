@@ -1,50 +1,53 @@
 {% set name = "pomegranate" %}
-{% set version = "0.14.8" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pomegranate-{{ version }}.tar.gz
-  sha256: 2296651290482dd53204ffaaaea267ceee057ce1b3ef1f9d9793febe66d6693d
+  # The pomegranate pypi package is not up to date and points to the old Github repo
+  url: https://github.com/jmschrei/pomegranate/archive/v{{ version }}.tar.gz
+  sha256: 2cb49b7767b4a0059ec2801307ec6ee5b192e0f2ef8f33e2ed79b51d23b973a5
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
 requirements:
-  build:
-    - {{ compiler('cxx') }}
-    - cython  # [target_platform != build_platform]
-    - numpy   # [target_platform != build_platform]
   host:
-    - cython
-    - numpy
+    - python >=3.7
     - pip
-    - python
-    - scipy >=0.17.0
   run:
-    - joblib >=0.9.0b4
-    - networkx >=2.4
-    - {{ pin_compatible("numpy") }}
-    - python
-    - pyyaml
-    - scipy >=0.17.0
+    - python >=3.7
+    - numpy >=1.22.2
+    - scipy >=1.6.2
+    - scikit-learn >=1.0.2
+    - pytorch >=1.9.0
+    - apricot-select >=0.6.1
+    - networkx >=2.8.4
 
 test:
   imports:
     - pomegranate
+    - pomegranate.bayes_classifier
+    - pomegranate.bayesian_network
+    - pomegranate.factor_graph
+    - pomegranate.gmm
+    - pomegranate.kmeans
+    - pomegranate.markov_chain
+    - pomegranate.distributions
+    - pomegranate.hmm
   commands:
     - pip check
   requires:
     - pip
 
 about:
-  home: http://pypi.python.org/pypi/pomegranate/
+  home: https://github.com/jmschrei/torchegranate
   doc_url: https://pomegranate.readthedocs.io
   dev_url: https://github.com/jmschrei/pomegranate
-  summary: Pomegranate is a graphical models library for Python, implemented in Cython for speed.
+  summary: Pomegranate is a graphical models library for Python. Fast, flexible and easy to use probabilistic modelling in Python.
   license: MIT
   license_file:
     - LICENSE
@@ -53,3 +56,4 @@ extra:
   recipe-maintainers:
     - micknudsen
     - wolfv
+    - tschuelia
