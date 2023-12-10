@@ -13,7 +13,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -45,7 +45,7 @@ test:
     - pip
 
 about:
-  home: https://github.com/jmschrei/torchegranate
+  home: https://github.com/jmschrei/pomegranate
   doc_url: https://pomegranate.readthedocs.io
   dev_url: https://github.com/jmschrei/pomegranate
   summary: Pomegranate is a graphical models library for Python. Fast, flexible and easy to use probabilistic modelling in Python.
