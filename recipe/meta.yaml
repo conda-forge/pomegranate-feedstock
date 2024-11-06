@@ -1,5 +1,5 @@
 {% set name = "pomegranate" %}
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 source:
   # The pomegranate pypi package is not up to date and points to the old Github repo
   url: https://github.com/jmschrei/pomegranate/archive/v{{ version }}.tar.gz
-  sha256: 2cb49b7767b4a0059ec2801307ec6ee5b192e0f2ef8f33e2ed79b51d23b973a5
+  sha256: b70d85d424f77c001f549f04fe65f84b2077f37c8250f52c1a5f703aa88c080a
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
